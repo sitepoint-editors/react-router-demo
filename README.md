@@ -1,27 +1,36 @@
-# React Router Demo
+# React Router v5: The Complete Guide
 
-React router is the de-facto routing library for React.This repo consists of several examples that demonstrate what you can do with react router v4. The example covered include:
+[React Router](https://reacttraining.com/react-router/) is the de facto standard routing library for React. This repo consists of several examples that demonstrate what you can do with react router v5. 
+
+The example covered include:
 
 - Basic navigational routing
 - Nested routing
 - Nested routing with path parameters
 - Protected routing
 
-See full tutorial [here](https://www.sitepoint.com/react-router-v4-complete-guide/).
+This code accompanies the following tutorial on SitePoint: https://www.sitepoint.com/react-router-complete-guide/
 
-Here is a [link](https://github.com/blizzerand/react-router-v4-demo) to the original project.
+## Requirements
 
-## Install instructions
+* [Node.js](http://nodejs.org/)
 
-Each demo has its own directory and a `package.json` file. Run the following command to install the node modules:
+## Installation Steps (if applicable)
 
-```bash
-# Navigate to a demo folder
-cd Demo-01...
+1. Clone repo
+2. Run `npm install`
+3. Run `npm run start`
+4. Visit http://localhost:3000/
 
-# Install Package Dependencies
-npm install
+## License
 
-# Serve the demo on a browser
-npm start
-```
+SitePoint's code archives and code examples are licensed under the MIT license.
+
+Copyright © 2020 SitePoint
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
