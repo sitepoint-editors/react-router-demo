@@ -1,26 +1,28 @@
-import React from 'react';
+import React from "react";
+import { useParams } from "react-router-dom";
 
-const Product = ({ match, data }) => {
-  const product = data.find(p => p.id === Number(match.params.productId));
+const Product = ({ data }) => {
+  const { productId } = useParams();
+  const product = data.find(p => p.id === Number(productId));
   let productData;
 
-  if (product)
+  if (product) {
     productData = (
       <div>
         <h3> {product.name} </h3>
         <p>{product.description}</p>
         <hr />
-        <h4>{product.status}</h4>
+        <h4>{product.status}</h4>{" "}
       </div>
     );
-  else
+  } else {
     productData = <h2> Sorry. Product doesn't exist </h2>;
+  }
 
   return (
     <div style={{ display: "flex" }}>
       <div
         style={{
-          padding: "0 10% 0 10%",
           width: "80%",
           margin: "auto",
           background: "#ffffff"
@@ -30,6 +32,6 @@ const Product = ({ match, data }) => {
       </div>
     </div>
   );
-}
+};
 
 export default Product;
