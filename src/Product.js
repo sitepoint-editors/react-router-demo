@@ -12,7 +12,7 @@ const Product = ({ data }) => {
         <h3> {product.name} </h3>
         <p>{product.description}</p>
         <hr />
-        <h4>{product.status}</h4>{" "}
+        <h4>{product.status}</h4>
       </div>
     );
   } else {
