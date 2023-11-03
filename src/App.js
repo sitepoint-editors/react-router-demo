@@ -1,13 +1,13 @@
-import React from "react";
-import { Link, Route, Switch } from "react-router-dom";
-import Category from "./Category";
-import Products from "./Products";
+import { Link, Route, Routes } from 'react-router-dom';
+import { Categories, Desktops, Laptops } from './Categories';
+import Products from './Products';
 import Login from './Login';
-import PrivateRoute from "./PrivateRoute";
+import PrivateRoute from './PrivateRoute';
 
 const Home = () => (
   <div>
     <h2>Home</h2>
+    <p>Welcome to our homepage!</p>
   </div>
 );
 
@@ -20,13 +20,13 @@ const Admin = () => (
 export default function App() {
   return (
     <div>
-      <nav className="navbar navbar-light">
-        <ul className="nav navbar-nav">
+      <nav>
+        <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/category">Category</Link>
+            <Link to="/categories">Categories</Link>
           </li>
           <li>
             <Link to="/products">Products</Link>
@@ -37,13 +37,23 @@ export default function App() {
         </ul>
       </nav>
 
-      <Switch>
-        <Route exact path="/"><Home /></Route>
-        <Route path="/category"><Category /></Route>
-        <Route path="/login"><Login /></Route>
-        <Route path="/products"><Products /></Route>
-        <PrivateRoute path="/admin" component={Admin} />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/categories/" element={<Categories />}>
+          <Route path="desktops" element={<Desktops />} />
+          <Route path="laptops" element={<Laptops />} />
+        </Route>
+        <Route path="/products/*" element={<Products />} />
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/admin"
+          element={
+            <PrivateRoute>
+              <Admin />
+            </PrivateRoute>
+          }
+        />
+      </Routes>
     </div>
   );
 }

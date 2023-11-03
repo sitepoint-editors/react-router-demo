@@ -1,19 +1,21 @@
-import React from "react";
-import { Redirect, Route, useLocation } from "react-router-dom";
+import { useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { fakeAuth } from './Login';
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = ({ children }) => {
+  const navigate = useNavigate();
   const location = useLocation();
 
-  return (
-    <Route {...rest}>
-      {fakeAuth.isAuthenticated === true ?
-        <Component />
-      :
-        <Redirect to={{ pathname: "/login", state: { from: location } }} />
-      }
-    </Route>
-  );
+  useEffect(() => {
+    if (!fakeAuth.isAuthenticated) {
+      navigate('/login', {
+        state: { from: location },
+        replace: true
+      });
+    }
+  }, [navigate, location]);
+
+  return fakeAuth.isAuthenticated ? children : null;
 };
 
 export default PrivateRoute;

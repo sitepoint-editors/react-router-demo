@@ -1,74 +1,56 @@
-import React from "react";
-import { Link, Route, useRouteMatch } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import Product from "./Product";
-import "./styles.css";
+
+const productData = [
+  {
+    id: 1,
+    name: "Dell OptiPlex 3090",
+    description:
+      "The Dell OptiPlex 3090 is a compact desktop PC that offers versatile features to meet your business needs.",
+    status: "Available",
+  },
+  {
+    id: 2,
+    name: "Lenovo ThinkPad X1 Carbon",
+    description:
+      "Designed with a sleek and durable build, the Lenovo ThinkPad X1 Carbon is a high-performance laptop ideal for on-the-go professionals.",
+    status: "Out of Stock",
+  },
+  {
+    id: 3,
+    name: "CyberPowerPC Gamer Xtreme",
+    description:
+      "The CyberPowerPC Gamer Xtreme is a high-performance gaming desktop with powerful processing and graphics capabilities for a seamless gaming experience.",
+    status: "Available",
+  },
+  {
+    id: 4,
+    name: "Apple MacBook Air",
+    description:
+      "The Apple MacBook Air is a lightweight and compact laptop with a high-resolution Retina display and powerful processing capabilities.",
+    status: "Out of Stock",
+  },
+];
 
 const Products = () => {
-  const productData = [
-    {
-      id: 1,
-      name: "NIKE Liteforce Blue Sneakers",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin molestie.",
-      status: "Available",
-    },
-    {
-      id: 2,
-      name: "Stylised Flip Flops and Slippers",
-      description:
-        "Mauris finibus, massa eu tempor volutpat, magna dolor euismod dolor.",
-      status: "Out of Stock",
-    },
-    {
-      id: 3,
-      name: "ADIDAS Adispree Running Shoes",
-      description:
-        "Maecenas condimentum porttitor auctor. Maecenas viverra fringilla felis, eu pretium.",
-      status: "Available",
-    },
-    {
-      id: 4,
-      name: "ADIDAS Mid Sneakers",
-      description:
-        "Ut hendrerit venenatis lacus, vel lacinia ipsum fermentum vel. Cras.",
-      status: "Out of Stock",
-    },
-  ];
-
-  const { url } = useRouteMatch();
-
-  /* Create an array of `<li>` items for each product */
   const linkList = productData.map((product) => {
     return (
       <li key={product.id}>
-        <Link to={`${url}/${product.id}`}>{product.name}</Link>
+        <Link to={`${product.id}`}>{product.name}</Link>
       </li>
     );
   });
 
   return (
     <div>
-      <div style={{ display: "block", justifyContent: "space-between" }}>
-        <div
-          style={{
-            float: "left",
-            padding: "10px",
-            width: "30%",
-            background: "#f0f0f0",
-            marginLeft: "auto"
-          }}
-        >
-          <h3>Products</h3>
-          <ul>{linkList}</ul>
-        </div>
-      </div>
+      <h3>Products</h3>
+      <p>Browse individual products.</p>
+      <ul>{linkList}</ul>
 
-      <Route path={`${url}/:productId`}>
-        <Product data={productData} />
-      </Route>
-      <Route exact path={url}>
-        <p style={{ textAlign: "center" }}>Please select a product.</p>
-      </Route>
+      <Routes>
+        <Route path=":productId" element={<Product data={productData} />} />
+        <Route index element={<p>Please select a product.</p>} />
+      </Routes>
     </div>
   );
 };

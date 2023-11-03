@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { Redirect, useLocation } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function Login() {
+  const navigate = useNavigate();
   const { state } = useLocation();
-  const { from } = state || { from: { pathname: "/" } };
+  const from = state?.from || { pathname: '/' };
   const [redirectToReferrer, setRedirectToReferrer] = useState(false);
 
   const login = () => {
@@ -12,9 +13,11 @@ export default function Login() {
     });
   };
 
-  if (redirectToReferrer) {
-    return <Redirect to={from} />;
-  }
+  useEffect(() => {
+    if (redirectToReferrer) {
+      navigate(from.pathname, { replace: true });
+    }
+  }, [redirectToReferrer, navigate, from.pathname]);
 
   return (
     <div>
@@ -30,5 +33,5 @@ export const fakeAuth = {
   authenticate(cb) {
     this.isAuthenticated = true;
     setTimeout(cb, 100);
-  }
+  },
 };

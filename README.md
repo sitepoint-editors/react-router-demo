@@ -1,8 +1,8 @@
-# React Router v5: The Complete Guide
+# React Router v6: A Beginner's Guide
 
-[React Router](https://reacttraining.com/react-router/) is the de facto standard routing library for React. This repo consists of several examples that demonstrate what you can do with react router v5. 
+[React Router](https://reactrouter.com/) is the de facto standard routing library for React. This repo consists of several examples that demonstrate what you can do with react router v6. 
 
-The example covered include:
+The examples covered include:
 
 - Basic navigational routing
 - Nested routing
@@ -26,7 +26,7 @@ This code accompanies the following tutorial on SitePoint: https://www.sitepoint
 
 SitePoint's code archives and code examples are licensed under the MIT license.
 
-Copyright © 2020 SitePoint
+Copyright © 2023 SitePoint
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
